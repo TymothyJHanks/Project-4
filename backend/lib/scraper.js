@@ -1,6 +1,6 @@
 import axios from 'axios'; //importing axios
 import cheerio from 'cheerio'; //importing cheerio
-import db from '../lib/db'
+import db from './db'
 
 export async function getHTML (url) {
     const {data: html} = await axios.get(url); //this goes to the link and returns the entire html page in .json so we may use cheerio to scrape the data - putting everything into a {data} destructoring property so it returns the actually way we want the data to look to use cheerio with  
