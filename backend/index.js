@@ -16,9 +16,9 @@ app.get('/scrape', async (req,res,next)=> { //this creates an endpoint that the 
     res.json({ allIndeedDataPromised, allMonsterDataPromised}) //turning the data into JSON so it can be displayed
 });
 
-app.get('/all-data', async(req, res, next)=>{
-    const getAllData = db.value()
-    res.json(getAllData)
+app.get('/all-data', async(req, res, next)=>{ //creating a new endpoint to get all the data 
+    const getAllData = db.value() //db.value() gets all the data from our db.json database
+    res.json(getAllData) //converts all the data into JSON to send it 
 })
 
 app.listen(4000, () => console.log(`App is running on http://localhost:4000`))
