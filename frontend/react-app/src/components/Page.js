@@ -5,8 +5,8 @@ import '../css/Page.css' //importing css that only acts on the elements within t
 function Page({children}){
     return(
         // Wrapping entire div inside the scrape provider - if want to style the provider then need to do that in a css folder then import the stying
-        <ScrapeProvider value={{ //Passing props inside this provider as a value object
-            hey:'ho',
+        <ScrapeProvider value={{ //Passing props inside this provider as a value object to be called globally using hooks and React.createContext
+            hey:'ho ho ho',
             lets: 'go'
         }}> 
         <div className="Page">

@@ -16,6 +16,8 @@ function Data(){
     return(
         <div className="data">
             <h2>Your Data:</h2>
+            {/* You are able to use scrapeData.hey because the data being passed down is a prop of an object with key value pairs -  within a compoent thats being represented by the  useContext method - shits wild*/}
+            {scrapeData.hey}
         </div>
     )
 }
