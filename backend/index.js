@@ -2,7 +2,7 @@ import express from 'express'; //importing express app
 import cors from 'cors'; // importing cors to be able to commmunicate with our front end
 import { getIndeedData, getMonsterData} from './lib/scraper'; //importing our getHtml && getJobListings functions from scrapper.js
 import db from './lib/db';
-import './lib/cron'; //importing Cron Job so it auto runs when the file boots up
+// import './lib/cron'; //importing Cron Job so it auto runs when the file boots up
 
 
 //START TO CREATE AN EXPRESS APP
@@ -22,5 +22,6 @@ app.get('/all-data', async(req, res, next)=>{ //creating a new endpoint to get a
     const getAllData = db.value() //db.value() gets all the data from our db.json database
     res.json(getAllData) //converts all the data into JSON to send it 
 })
+
 
 app.listen(4000, () => console.log(`App is running on http://localhost:4000`))

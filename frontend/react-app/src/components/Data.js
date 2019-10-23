@@ -19,7 +19,7 @@ function Data(){
                 <ul>
                 {passedDownScrapesData.indeed.map(inCallBack => (
                     <li key={inCallBack.datePosted}>
-                        {inCallBack.indeedJobs.jobDescription}
+                        {inCallBack.indeedJobs.jobTitle}
                     </li>
                 ))}
                 </ul>

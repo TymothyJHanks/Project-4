@@ -10,10 +10,17 @@ export async function getHTML (url) {
 
 export async function getJobListings(html){ //This is specifically for indeed.com
      const $ = cheerio.load(html) //setting cheerio to a variable to use 
-    const jobTitle = $('.jobsearch-SerpJobCard .title').text().trim().split("\n"); //this searches the class on the website and then searches inside that class for a title class with the data I want and grabs the specific innerHTML text of each thing - the first '.reaplce' cleans up the /n's and the second ',replace' removes any line spacing - the '.text' method is specifically getting the text within the dom and its a method from cheerio - //.trim gets rid of the white space and .split gets ride of the \n's to make everything closer
-    const jobLocation = $('.jobsearch-SerpJobCard .sjcl').text().trim().split("\n"); //.text is a method from cheerio - .trim gets rid of white space in the data being returned - .split splits the data and gets rid of the \n's that plage our json - you NEED TO TRIM AND GET RID OF WHITE SPACE BEFORE YOU SPLIT OR IT WONT WORK
-    const jobPay = $('.jobsearch-SerpJobCard .salarySnippet').text().trim().split("\n")
-    const jobDescription = $('.jobsearch-SerpJobCard .summary').text().trim().split("\n");
+
+
+    // const jobTitle = $('.jobsearch-SerpJobCard .title').text().trim().split("\n"); //this searches the class on the website and then searches inside that class for a title class with the data I want and grabs the specific innerHTML text of each thing - the first '.reaplce' cleans up the /n's and the second ',replace' removes any line spacing - the '.text' method is specifically getting the text within the dom and its a method from cheerio - //.trim gets rid of the white space and .split gets ride of the \n's to make everything closer
+    const jobTitle = $('.jobsearch-SerpJobCard .title a').text().split("\n");; //this searches the class on the website and then searches inside that class for a title class with the data I want and grabs the specific innerHTML text of each thing - the first '.reaplce' cleans up the /n's and the second ',replace' removes any line spacing - the '.text' method is specifically getting the text within the dom and its a method from cheerio - //.trim gets rid of the white space and .split gets ride of the \n's to make everything closer
+
+        // console.log(jobTitle)
+
+    // const jobLocation = $('.jobsearch-SerpJobCard .sjcl').text().trim().split("\n"); //.text is a method from cheerio - .trim gets rid of white space in the data being returned - .split splits the data and gets rid of the \n's that plage our json - you NEED TO TRIM AND GET RID OF WHITE SPACE BEFORE YOU SPLIT OR IT WONT WORK
+    const jobLocation = $('.jobsearch-SerpJobCard .sjcl .location').text().split(","); //cleaned data - .text is a method from cheerio - .trim gets rid of white space in the data being returned - .split splits the data and gets rid of the \n's that plage our json - you NEED TO TRIM AND GET RID OF WHITE SPACE BEFORE YOU SPLIT OR IT WONT WORK
+    const jobPay = $('.jobsearch-SerpJobCard .salarySnippet .salary .salaryText').text().split('\n')
+    const jobDescription = $('.jobsearch-SerpJobCard .summary').text().split("\n")
     const allInfo = {jobTitle, jobLocation, jobPay, jobDescription}
     return (allInfo); //this is needed because you can only return one thing so I made an array of multiple variable and returns them all
  }
@@ -64,9 +71,6 @@ export async function runCron() { //This function is able to automatically run o
         monsterJobs: allMonsterDataPromised //adding another key value pair which includes our data
     }).write() //this writes everything inside this object into our data base
 
-
-    // //RETURNING JSON
-    // res.json({ allIndeedDataPromised, allMonsterDataPromised}) //turning the data into JSON so it can be displayed
 
     console.log('done!')
 } 
