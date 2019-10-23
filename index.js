@@ -1,9 +1,12 @@
-import { getIndeedData, getMonsterData} from './lib/scraper'; //importing our getHtml && getJobListings functions from scrapper.js
 import express from 'express'; //importing express app
+import { getIndeedData, getMonsterData} from './lib/scraper'; //importing our getHtml && getJobListings functions from scrapper.js
+import db from './lib/db'
 
- 
+
 //START TO CREATE AN EXPRESS APP
 const app = express();
+
+console.log(db)
 
 app.get('/scrape', async (req,res,next)=> {
     console.log('scrapping!')
