@@ -1,3 +1,8 @@
-import {getHTML} from './lib/scraper';
+import {getHTML} from './lib/scraper'; //importing our getHtml function from scrapper.js
 
-console.log(getHTML());
+
+async function go(){
+    console.log( await getHTML('https://www.indeed.com/q-software-l-washington,-DC-jobs.html'));
+}
+
+go();
