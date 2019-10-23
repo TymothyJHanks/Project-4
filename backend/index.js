@@ -1,11 +1,13 @@
 import express from 'express'; //importing express app
+import cors from 'cors'; // importing cors to be able to commmunicate with our front end
 import { getIndeedData, getMonsterData} from './lib/scraper'; //importing our getHtml && getJobListings functions from scrapper.js
 import db from './lib/db';
 import './lib/cron'; //importing Cron Job so it auto runs when the file boots up
 
 
 //START TO CREATE AN EXPRESS APP
-const app = express();
+const app = express();//importing the express app to use
+app.use(cors()); //this allows our express app to use cors
 
 
 app.get('/scrape', async (req,res,next)=> { //this creates an endpoint that the user can go to in our server

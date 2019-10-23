@@ -11,14 +11,16 @@ import {useEffect, useState} from 'react';
 function useScrapes(){ //creating a custom hook
     const [scrapes, setScrapes] = useState({}); //creating a variable called scrapes and a handleer called setScrapes to handle that specific state and we are setting this entire thing to be returned as an object within the useState({})
 
-  useEffect( (async()=>{
+  useEffect(function() { //needed to pass another anonymous function at the beginning to make things work
+      (async()=>{
       console.log('Mounting or Updating') //console logging the beginning of this functon taking place a reference
 
       const responce = await fetch('http://localhost:4000/all-data'); //fetching our data from our backend server and placing it into a variable 
       const backendData = await responce.json();//awaiting our fetch and turning it into JSON that we place inside a variable
       console.log(backendData); //console logging our data
-      setScrapes(backendData) //storing out fetched data into our interall state 
-  }) (), []); //needed to return an anonymous function immediately after becauseasync returns a promise and that promise needs to be resolved so this is one way around it - also, this puts all the data that we fetch into an array
+    //   setScrapes(backendData) //storing out fetched data into our interall state 
+  })();  //needed to return an anonymous function immediately after because async returns a promise and that promise needs to be resolved so this is one way around it - also, this puts all the data that we fetch into an array
+}, []); //returns the entire function of the fetch call data and stores inside an array
 
     return scrapes; //we return the array
 }
