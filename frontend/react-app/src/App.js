@@ -2,7 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Page from '../src/components/Page'
+//Outside Imports
+import Page from '../src/components/Page' //importing page which is being styled
+import Data from '../src/components/Data'
 
 
 
@@ -10,8 +12,8 @@ import Page from '../src/components/Page'
 function App() {
   return (
     <Page>
-      <p>Hey</p>
-      <p>Hellloooo</p>
+      <h2>Home Page</h2>
+      <Data/>
     </Page>
   );
 }
