@@ -6,18 +6,16 @@ import {ScrapeContext} from '../components/ScrapeContext'; //importing our scrap
 function Data(){
 
     //Functions
-    const scrapeData = useContext(ScrapeContext) //This is a reusable context hook that allows us to pull data from other components specically the ScrapeProvider in Page.js
+    const {passedDownScrapesData} = useContext(ScrapeContext) //This is a reusable context hook that allows us to pull data from other components specically the ScrapeProvider in Page.js - needed to destructor scrapes because i guess the data is one level deeper
 
-    console.log(scrapeData)
-
- 
+    console.log(passedDownScrapesData)
 
     //Rendering/Returning
     return(
         <div className="data">
             <h2>Your Data:</h2>
             {/* You are able to use scrapeData.hey because the data being passed down is a prop of an object with key value pairs -  within a compoent thats being represented by the  useContext method - shits wild*/}
-            {scrapeData.hey}
+            {passedDownScrapesData.indeed.length}
         </div>
     )
 }
