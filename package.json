@@ -4,7 +4,8 @@
   "description": "This is going to be a web scraper app that gets data from job websites and displays them in real time as the website updates them",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node -r esm index.js"
   },
   "repository": {
     "type": "git",
