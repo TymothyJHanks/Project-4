@@ -10,14 +10,7 @@ export async function getHTML (url) {
 
 export async function getJobListings(html){ //This is specifically for indeed.com
      const $ = cheerio.load(html) //setting cheerio to a variable to use 
-
-
-    // const jobTitle = $('.jobsearch-SerpJobCard .title').text().trim().split("\n"); //this searches the class on the website and then searches inside that class for a title class with the data I want and grabs the specific innerHTML text of each thing - the first '.reaplce' cleans up the /n's and the second ',replace' removes any line spacing - the '.text' method is specifically getting the text within the dom and its a method from cheerio - //.trim gets rid of the white space and .split gets ride of the \n's to make everything closer
     const jobTitle = $('.jobsearch-SerpJobCard .title a').text().split("\n");; //this searches the class on the website and then searches inside that class for a title class with the data I want and grabs the specific innerHTML text of each thing - the first '.reaplce' cleans up the /n's and the second ',replace' removes any line spacing - the '.text' method is specifically getting the text within the dom and its a method from cheerio - //.trim gets rid of the white space and .split gets ride of the \n's to make everything closer
-
-        // console.log(jobTitle)
-
-    // const jobLocation = $('.jobsearch-SerpJobCard .sjcl').text().trim().split("\n"); //.text is a method from cheerio - .trim gets rid of white space in the data being returned - .split splits the data and gets rid of the \n's that plage our json - you NEED TO TRIM AND GET RID OF WHITE SPACE BEFORE YOU SPLIT OR IT WONT WORK
     const jobLocation = $('.jobsearch-SerpJobCard .sjcl .location').text().split(","); //cleaned data - .text is a method from cheerio - .trim gets rid of white space in the data being returned - .split splits the data and gets rid of the \n's that plage our json - you NEED TO TRIM AND GET RID OF WHITE SPACE BEFORE YOU SPLIT OR IT WONT WORK
     const jobPay = $('.jobsearch-SerpJobCard .salarySnippet .salary .salaryText').text().split('\n')
     const jobDescription = $('.jobsearch-SerpJobCard .summary').text().split("\n")
@@ -27,9 +20,9 @@ export async function getJobListings(html){ //This is specifically for indeed.co
 
  export async function getJobListingsMonster(html){ //This is specifically for monster.com
     const $ = cheerio.load(html);
-    const jobTitleM = $('.flex-row .summary .title').text().trim().split("\n"); //grabing the job titles nested in 3 classes
-    const jobCompanyM = $('.flex-row .summary .company .name').text().trim().split("\n"); //grabing the company name data nested 3 classes deep
-    const jobLocationM = $('.flex-row .summary .location .name').text().trim().split("\n");//grabing the location name data nested 3 classes deep
+    const jobTitleM = $('.flex-row .summary .card-header .title a').text().split('\n'); //grabing the job titles nested in 3 classes
+    const jobCompanyM = $('.flex-row .summary .company span').text().split(); //grabing the company name data nested 3 classes deep
+    const jobLocationM = $('.flex-row .summary .location .name').text().split('\n');//grabing the location name data nested 3 classes deep
     const allInfoM = {jobTitleM, jobCompanyM, jobLocationM} //placing each variable into an array because if we dont, we cant return multiple variables
     return(allInfoM) //returning the entire array 
  } 
