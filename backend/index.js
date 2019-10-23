@@ -2,7 +2,7 @@ import express from 'express'; //importing express app
 import cors from 'cors'; // importing cors to be able to commmunicate with our front end
 import { getIndeedData, getMonsterData} from './lib/scraper'; //importing our getHtml && getJobListings functions from scrapper.js
 import db from './lib/db';
-// import './lib/cron'; //importing Cron Job so it auto runs when the file boots up
+import './lib/cron'; //importing Cron Job so it auto runs when the file boots up
 
 
 //START TO CREATE AN EXPRESS APP
