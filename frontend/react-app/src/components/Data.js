@@ -5,10 +5,10 @@ import {useContext} from 'react' //importing useContext to be able to use data i
 import {ScrapeContext} from '../components/ScrapeContext'; //importing our scrape context from scrapecontext.js - the data in is actually comming from the props passed down from the page.js file from the scrapeContext component in there 
 
 function Data(){ //Main Component that everything is rendering from
-    const [displayC, setDisplay] = useState({
+    const [displayC, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
         cssDisplay: 'none'
     }); 
-    const log = console.log;
+    const log = console.log; //used this so I'm able to console log things easier
 
 
     //Functions
@@ -39,7 +39,7 @@ function JobData() {
                 {passedDownScrapesData.indeed.map(inCallBack => (
                     <li key={inCallBack.datePosted}>
                        {inCallBack.indeedJobs.jobTitle[1,2,3,4,5]}  + {inCallBack.indeedJobs.jobPay[1,2,3,4,5]}
-                       <button>Get Job Location</button>
+                       <button onClick={ () => setDisplay( {cssDisplay:'block'} ) }>Get Job Location</button>
                        <p style={{display: displayC.cssDisplay}}>{inCallBack.indeedJobs.jobTitle}</p>
                     </li>
                 ))}
