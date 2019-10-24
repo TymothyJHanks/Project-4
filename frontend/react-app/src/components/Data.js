@@ -35,15 +35,25 @@ function JobData() {
             {/* You are able to use scrapeData.hey because the data being passed down is a prop of an object with key value pairs -  within a compoent thats being represented by the  useContext method - shits wild*/}
             <div className='ScrapedData'>
                 <h4>Job Titles</h4>
-                <ul>
-                {passedDownScrapesData.indeed.map(inCallBack => (
-                    <li key={inCallBack.datePosted}>
-                       {inCallBack.indeedJobs.jobTitle[1,2,3,4,5]}  + {inCallBack.indeedJobs.jobPay[1,2,3,4,5]}
-                       <button onClick={ () => setDisplay( {cssDisplay:'block'} ) }>Get Job Location</button>
-                       <p style={{display: displayC.cssDisplay}}>{inCallBack.indeedJobs.jobTitle}</p>
-                    </li>
-                ))}
-                </ul>
+                <div className="jobInfo">
+                    <ul>
+                    {/* This is a function that loops over all the data - gives it a callback - and then displays the data that is being passed through from an array - also logs a key for the loop that is mandatory */}
+                    {passedDownScrapesData.indeed.map((inCallBack, i) => (
+                        // This is logging a Key value for the loop
+                        <li key={i}>
+
+                        {/* This function below grabs diferent titles from the different arrays being posted */}
+                        {inCallBack.indeedJobs.jobTitle[1]}  + {inCallBack.indeedJobs.jobPay[1]}
+
+                        {/* This displays my information on the screen  */}
+                        <p style={{display: displayC.cssDisplay}}>{inCallBack.indeedJobs.jobLocation[1]}</p>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+                {/* This Button sets my display above to block so it will render on the page when clicked */}
+                <button onClick={ () => setDisplay( {cssDisplay:'block'} ) }>Get All Job Locations</button>
+                <button onClick={ () => setDisplay( {cssDisplay:'none'} ) }>Hide All Job Locations</button>
             </div>
         </div>
     )
