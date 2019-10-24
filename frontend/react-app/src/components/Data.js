@@ -5,18 +5,23 @@ import {useContext} from 'react' //importing useContext to be able to use data i
 import {ScrapeContext} from '../components/ScrapeContext'; //importing our scrape context from scrapecontext.js - the data in is actually comming from the props passed down from the page.js file from the scrapeContext component in there 
 
 function Data(){ //Main Component that everything is rendering from
-    const [{displayLocations, displayPay, displayDescription}, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
-        displayLocations: 'none',
-        displayPay: 'none',
-        displayDescription: 'none',
-    }); 
+
+
+    //SETTINGS STATE AND VARIABLES
     const log = console.log; //used this so I'm able to console log things easier
+    const [{displayLocationsIndeed, displayPayIndeed, displayDescriptionIndeed}, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
+        displayLocationsIndeed: 'none',
+        displayPayIndeed: 'none',
+        displayDescriptionIndeed: 'none',
+    }); 
 
 
-    //Functions
+
+
+    //FUNCTIONS
     const {passedDownScrapesData} = useContext(ScrapeContext) //This is a reusable context hook that allows us to pull data from other components specically the ScrapeProvider in Page.js - needed to destructor scrapes because i guess the data is one level deeper
 
-    console.log(passedDownScrapesData)
+    // console.log(passedDownScrapesData)
 
 function JobData() {
     passedDownScrapesData.indeed.forEach(callBackEle => {
@@ -30,7 +35,9 @@ function JobData() {
 
 //    JobData();
 
-    //Rendering/Returning
+
+
+    //RENDERING AND RETURNING 
     return(
         <div className="data">
             <h2>Your Indeed Data:</h2>
@@ -49,13 +56,13 @@ function JobData() {
                         {/* This function below grabs diferent titles from the different arrays being posted */}
                         <h2>Title: {inCallBack.indeedJobs.jobTitle[1]}</h2>
 
-                        <h3 style={{display: displayPay}}>Pay: {inCallBack.indeedJobs.jobPay[1]}</h3>
+                        <h3 style={{display: displayPayIndeed}}> Pay: {inCallBack.indeedJobs.jobPay[1]}</h3>
 
                         {/* This displays my information on the screen  */}
-                        <h3 style={{display: displayLocations}}> Location: {inCallBack.indeedJobs.jobLocation[1]}</h3>
+                        <h3 style={{display: displayLocationsIndeed}}> Location: {inCallBack.indeedJobs.jobLocation[1]}</h3>
 
                         {/* This displays my information on the screen  */}
-                        <p style={{display: displayDescription}}> Description: {inCallBack.indeedJobs.jobDescription[1]}</p>
+                        <p style={{display: displayDescriptionIndeed}}> Description: {inCallBack.indeedJobs.jobDescription[1]}</p>
                         </li>
                     ))}
                     </ul>
@@ -66,45 +73,45 @@ function JobData() {
                 {/* This Button sets my display above to block so it will render on the page when clicked */}
                 <div className='allBtns'>
 
-                    {/* In these locations button div -  since the state has multiple things, the displayPay is being set to block but you MUST also set all key value pairs in this state so I need to also set the location back to whatever the location is and not to 'block' or 'none'*/}
+                    {/* In these locations button div -  since the state has multiple things, the displayPayIndeed is being set to block but you MUST also set all key value pairs in this state so I need to also set the location back to whatever the location is and not to 'block' or 'none'*/}
                     <div className='locationBtns'>
                 <button onClick={ () => 
                     setDisplay ( 
                         {
-                            displayDescription: displayDescription,
-                            displayPay: displayPay, //setting the display to "block" to display the information
-                            displayLocations: 'block' //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
+                            displayDescriptionIndeed: displayDescriptionIndeed,
+                            displayPayIndeed: displayPayIndeed, //setting the display to "block" to display the information
+                            displayLocationsIndeed: 'block' //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
                         }
                     )}> Get All Job Locations </button>
 
                 <button onClick={ () => 
                     setDisplay ( 
                         {
-                            displayDescription: displayDescription,
-                            displayPay: displayPay, //setting the display to 'none' to hide the information
-                            displayLocations: 'none', //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
+                            displayDescriptionIndeed: displayDescriptionIndeed,
+                            displayPayIndeed: displayPayIndeed, //setting the display to 'none' to hide the information
+                            displayLocationsIndeed: 'none', //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
                         }
                     )}> Hide All Job Locations </button>
                         </div>
 
 
-                    {/* In these Descriptions button div -  since the state has multiple things, the displayPay is being set to block but you MUST also set all key value pairs in this state so I need to also set the location back to whatever the location is and not to 'block' or 'none'*/}
+                    {/* In these Descriptions button div -  since the state has multiple things, the displayPayIndeed is being set to block but you MUST also set all key value pairs in this state so I need to also set the location back to whatever the location is and not to 'block' or 'none'*/}
                     <div className='descriptionsBtns'>
                 <button onClick={ () => 
                     setDisplay ( 
                         {
-                            displayDescription: 'block',
-                            displayPay: displayPay, //setting the display to "block" to display the information
-                            displayLocations: displayLocations //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
+                            displayDescriptionIndeed: 'block',
+                            displayPayIndeed: displayPayIndeed, //setting the display to "block" to display the information
+                            displayLocationsIndeed: displayLocationsIndeed //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
                         }
                     )}> Get All Job Descriptions </button>
 
                 <button onClick={ () => 
                     setDisplay ( 
                         {
-                            displayDescription: 'none',
-                            displayPay: displayPay, //setting the display to 'none' to hide the information
-                            displayLocations: displayLocations, //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
+                            displayDescriptionIndeed: 'none',
+                            displayPayIndeed: displayPayIndeed, //setting the display to 'none' to hide the information
+                            displayLocationsIndeed: displayLocationsIndeed, //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
                         }
                     )}> Hide All Job Descriptions </button>
                         </div>
@@ -113,23 +120,23 @@ function JobData() {
 
 
                 
-                    {/* In these pay button div -  since the state has multiple things, the displayPay is being set to block but you MUST also set all key value pairs in this state so I need to also set the location back to whatever the location is and not to 'block' or 'none'*/}
+                    {/* In these pay button div -  since the state has multiple things, the displayPayIndeed is being set to block but you MUST also set all key value pairs in this state so I need to also set the location back to whatever the location is and not to 'block' or 'none'*/}
                     <div className='payBtns'>
                 <button onClick={ () => 
                     setDisplay ( 
                         {
-                            displayDescription: displayDescription,
-                            displayPay:'block', //setting the display to "block" to display the information
-                            displayLocations: displayLocations, //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
+                            displayDescriptionIndeed: displayDescriptionIndeed,
+                            displayPayIndeed:'block', //setting the display to "block" to display the information
+                            displayLocationsIndeed: displayLocationsIndeed, //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
                         }
                     )}> Get All Job Salary </button>
 
                 <button onClick={ () => 
                     setDisplay ( 
                         {
-                            displayDescription: displayDescription,
-                            displayPay:'none', //setting the display to 'none' to hide the information
-                            displayLocations: displayLocations, //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
+                            displayDescriptionIndeed: displayDescriptionIndeed,
+                            displayPayIndeed:'none', //setting the display to 'none' to hide the information
+                            displayLocationsIndeed: displayLocationsIndeed, //since this is in the same set state - I need to set this to whatever the CURRENT value of this key is so I set value to ITSELF
                         }
                     )}> Hide All Job Salary </button>
                     </div>
