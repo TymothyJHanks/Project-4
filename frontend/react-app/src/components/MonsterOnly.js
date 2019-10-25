@@ -3,7 +3,7 @@ import React from 'react'; //importing react
 import {useState} from 'react'; //importing use state so I'll be able to set state in here
 import {useContext} from 'react' //importing useContext to be able to use data in other components 
 import {ScrapeContext} from '../components/ScrapeContext'; //importing our scrape context from scrapecontext.js - the data in is actually comming from the props passed down from the page.js file from the scrapeContext component in there 
-// import '../css/Data.css' //importing data css
+import '../css/Data.css' //importing data css
 
 function Data(){ //Main Component that everything is rendering from
 
@@ -24,7 +24,9 @@ function Data(){ //Main Component that everything is rendering from
 
     //RENDERING AND RETURNING 
     return( 
+        <div className="Wrapper">
         <div className="scrapeData">
+            <div className="image"></div>
             {/* You are able to use scrapeData.hey because the data being passed down is a prop of an object with key value pairs -  within a compoent thats being represented by the  useContext method - shits wild*/}  
                 <div className="Monster">
                     <h1>Your Monster Data</h1>
@@ -89,6 +91,7 @@ function Data(){ //Main Component that everything is rendering from
                         </div>
                 </div>
                 </div>
+        </div>
         </div>
     )
 }

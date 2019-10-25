@@ -15,55 +15,56 @@ display: grid;
   grid-template-areas: "image" "text" "stats";
   
   border-radius: 18px;
-  background: white;
+  background: grey;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
   /* font-family: roboto; */
   text-align: center;
   overflow: auto;
+
 
 }
 
 .image {
     grid-area: image;
   }
-  .Indeed{
+  .Monster{
     grid-area: text;
   }
-  .allBtnsIndeed {
+  .allBtnsMonster {
     grid-area: stats; 
   }
 
   .image {
     grid-area: image;
-    background: url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Indeed_logo.png);
+    background: url(https://logo-logos.com/wp-content/uploads/2016/11/Monster_Jobs_logo_MonsterJobs_logotype.png);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: 65px;
-
+    background-position-x: 50%;
   }
 
-  .Indeed {
+  .Monster {
     grid-area: text;
     margin: 25px;
   }
 
-  .Indeed h2 {
+  .Monster h2 {
     margin-top:0px;
     font-size:28px;
   }
-  .Indeed h3 {
+  .Monster h3 {
     margin-top:0px;
     font-size:24px;
   }
-  .Indeed p {
+  .Monster p {
     color: grey;
     font-size:15px;
     font-weight: 300;
   }
   
-  .allBtnsIndeed  {
+  .allBtnsMonster  {
     grid-area: stats; 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
