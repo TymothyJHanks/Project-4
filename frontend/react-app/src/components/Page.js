@@ -16,9 +16,9 @@ function useScrapes() {
 
 useEffect(function() {
     //needed to pass another anonymous function at the beginning to make things work
-function aFunc (){
+function autoFetch (){ //this function auto fetches the data in our backend so we dont need to refreash te page to get the data and the data pops up in real time on the screen
     (async () => {
-        console.log("Mounting or Updating"); //console logging the beginning of this functon taking place a reference
+        console.log("autoFetch Function Running in Page.js"); //console logging the beginning of this functon taking place a reference
         
         const responce = await fetch("http://localhost:4000/all-data"); //fetching our data from our backend server and placing it into a variable
         const backendData = await responce.json(); //awaiting our fetch and turning it into JSON that we place inside a variable
@@ -26,7 +26,7 @@ function aFunc (){
         setScrapes(backendData); //storing out fetched data into our interall state
     })(); //needed to return an anonymous function immediately after because async returns a promise and that promise needs to be resolved so this is one way around it - also, this puts all the data that we fetch into an array
 }
-setInterval(aFunc, 3000) //This specifically runs the fetch call in a time interval but I needed to place a function as the first param and not an empty function or else it would ignore the timer completely
+setInterval(autoFetch, 5000) //This specifically runs the fetch call in a time interval but I needed to place a function as the first param and not an empty function or else it would ignore the timer completely
 }, []); //returns the entire function of the fetch call data and stores inside an array
 return scrapes; //we return the array
 }
