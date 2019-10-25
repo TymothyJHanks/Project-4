@@ -12,7 +12,6 @@ import Data from '../src/components/Data'
 function App() {
   return (
     <Page>
-      <h2>Home Page</h2>
       <Data/>
     </Page>
   );

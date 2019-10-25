@@ -1,0 +1,6 @@
+.scrapeData{
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
