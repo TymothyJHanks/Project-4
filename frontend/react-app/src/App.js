@@ -18,22 +18,29 @@ import MonsterOnly from "../src/components/MonsterOnly";
 
 function App() {
 
-const [{displayLocationsIndeed}, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
-  displayLocationsIndeed: 'block',
+const [{homePageDisplay, showIndeedOnly}, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
+  homePageDisplay: 'block',
+  showIndeedOnly: 'none',
+  showMonsterOnly: 'none',
+  showBoth: 'none',
 }); 
 
   return (
     <Page>
-      
-      <div style={{display: 'none'}}>
+
+      <div style={{display: showIndeedOnly}}>
       <IndeedOnly></IndeedOnly>
       </div>
 
-      <div style={{display: displayLocationsIndeed}}className="appWrapperBody">
+      <div style={{display: homePageDisplay}}className="appWrapperBody">
         <div  className="all">
 
         <Link onClick={()=> setDisplay({
-          displayLocationsIndeed: 'none'
+          homePageDisplay: 'none',
+          showIndeedOnly: 'block',
+          showMonsterOnly: 'none',
+          showBoth: 'none',
+
         })} to="/indeed">
           <div  className="left">
             <div className="text"> Indeed
