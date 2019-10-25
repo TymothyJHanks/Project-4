@@ -2,7 +2,7 @@ import React from "react"; //importing react
 
 //Outside Imports
 import { ScrapeProvider } from "../components/ScrapeContext"; //importing scrape provider from ScrapeContext.js
-import "../css/Page.css"; //importing css that only acts on the elements within the components and not the components itself
+// import "../css/Page.css"; //importing css that only acts on the elements within the components and not the components itself
 import { useEffect, useState } from "react";
 
 

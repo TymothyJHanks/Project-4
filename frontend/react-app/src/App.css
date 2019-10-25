@@ -1,22 +1,49 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.appWrapperBody{
+  background-image: radial-gradient(circle at center, #899Dc4, #495D84);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
+  /* Might need to remove this one */
+  height: 100vh; 
+
+
 }
 
-.App-link {
-  color: #09d3ac;
+.all{
+  display: flex;
+  perspective: 10px;
+  transform: perspective(300px) rotateX(20deg);
+  will-change: perspective;
+  perspective-origin: center center;
+  transition: all 1.3s ease-out;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+.all:hover{
+  perspective: 1000px;
+  transition: all 1.3s ease-in;
+  transform: perspective(10000px) rotateX(0deg);
+}
+
+.all:hover .text {
+  opacity: 1;
+}
+
+.all:hover > div {
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.all:hover .explainer{
+  opacity: 0;
+}
+
+
+
+.left, .right, .center {
+  width: 200px;
 }
