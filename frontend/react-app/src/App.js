@@ -25,10 +25,10 @@ function App() {
 
           <div className="center">
             <div className="text">Monster and Indeed</div>
-            <div className="explainer"><span>Hover Me</span></div>
+            <div className="explainer"><span>Search Jobs</span></div>
           </div>
 
-          
+
           <div className="right">
             <div className="text">Monster</div>
           </div>
