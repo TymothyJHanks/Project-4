@@ -46,4 +46,22 @@
 
 .left, .right, .center {
   width: 200px;
+  height: 150px;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 0 20px 5px rgba(100, 100, 255, 0.4);
+  opacity: 0;
+  transition: all .3 ease;
+  transition-delay: 1s;
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #58d;
+  cursor: pointer;
+  background-blend-mode: color-burn;
+}
+.left:hover, .right:hover, .center:hover{
+  box-shadow: 0 0 30px 10px rgba(100,100,255,0.6);
+  background-color: #ccf
 }
