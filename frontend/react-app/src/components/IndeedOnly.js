@@ -27,10 +27,9 @@ function Data(){ //Main Component that everything is rendering from
     
     //RENDERING AND RETURNING 
     return( 
+        <div className="Wrapper">
         <div className="scrapeData">
-        {/* <Link to='/Home'>Home Page</Link> */}
-        {/* <Route path="/Home" exact component={App} /> */}
-
+            <div className="image"></div>
             {/* You are able to use scrapeData.hey because the data being passed down is a prop of an object with key value pairs -  within a compoent thats being represented by the  useContext method - shits wild*/}  
                 <div className="Indeed">
             <h2>Your Indeed Data:</h2>
@@ -124,6 +123,7 @@ function Data(){ //Main Component that everything is rendering from
                 </div>
                 </div>
         </div>
+    </div>
     )
 }
 
