@@ -83,3 +83,13 @@
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Indeed_logo.png);
   background-size: contain;
 }
+.right{
+  transform: translateX(-30px) translateZ(-25px) rotateY(-10deg);
+  background-image: url(https://logo-logos.com/wp-content/uploads/2016/11/Monster_Jobs_logo_MonsterJobs_logotype.png);
+  background-size: contain;
+}
+.center{
+  transform: translateX(-30px) translateZ(-25px) rotateY(-10deg);
+  background-image: url(https://www.betterteam.com/i/monster-vs-indeed-420x320-20190109.jpg);
+  background-size: contain;
+}

@@ -23,14 +23,16 @@ function App() {
             <div className="text">Indeed</div>
           </div>
 
-          <div className="right">
-            <div className="text">Monster</div>
-          </div>
-
           <div className="center">
             <div className="text">Monster and Indeed</div>
             <div className="explainer"><span>Hover Me</span></div>
           </div>
+
+          
+          <div className="right">
+            <div className="text">Monster</div>
+          </div>
+
 
 
         </div>
