@@ -4,6 +4,9 @@ import {useState} from 'react'; //importing use state so I'll be able to set sta
 import {useContext} from 'react' //importing useContext to be able to use data in other components 
 import {ScrapeContext} from '../components/ScrapeContext'; //importing our scrape context from scrapecontext.js - the data in is actually comming from the props passed down from the page.js file from the scrapeContext component in there 
 // import '../css/Data.css' //importing data css
+import { Route, Link} from "react-router-dom";
+import HomePage from '../App';
+
 
 function Data(){ //Main Component that everything is rendering from
 
@@ -17,14 +20,17 @@ function Data(){ //Main Component that everything is rendering from
     }); 
     
     const {passedDownScrapesData} = useContext(ScrapeContext) //This is a reusable context hook that allows us to pull data from other components specically the ScrapeProvider in Page.js - needed to destructor scrapes because i guess the data is one level deeper
-
+    
     log(passedDownScrapesData) //Logging te data in te console so I can know whats going on
+    
 
-
-
+    
     //RENDERING AND RETURNING 
     return( 
         <div className="scrapeData">
+        {/* <Link to='/Home'>Home Page</Link> */}
+        {/* <Route path="/Home" exact component={App} /> */}
+
             {/* You are able to use scrapeData.hey because the data being passed down is a prop of an object with key value pairs -  within a compoent thats being represented by the  useContext method - shits wild*/}  
                 <div className="Indeed">
             <h2>Your Indeed Data:</h2>

@@ -18,7 +18,7 @@ import MonsterOnly from "../src/components/MonsterOnly";
 
 function App() {
 
-const [{homePageDisplay, showIndeedOnly}, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
+const [{homePageDisplay, showIndeedOnly, showMonsterOnly, showBoth}, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
   homePageDisplay: 'block',
   showIndeedOnly: 'none',
   showMonsterOnly: 'none',
@@ -30,6 +30,14 @@ const [{homePageDisplay, showIndeedOnly}, setDisplay] = useState({ //setting my 
 
       <div style={{display: showIndeedOnly}}>
       <IndeedOnly></IndeedOnly>
+      </div>
+
+      <div style={{display: showMonsterOnly}}>
+      <MonsterOnly></MonsterOnly>
+      </div>
+
+      <div style={{display: showBoth}}>
+      <Data></Data>
       </div>
 
       <div style={{display: homePageDisplay}}className="appWrapperBody">
@@ -48,16 +56,28 @@ const [{homePageDisplay, showIndeedOnly}, setDisplay] = useState({ //setting my 
           </div>
         </Link>
 
-
+        <Link onClick={()=> setDisplay({
+          homePageDisplay: 'none',
+          showIndeedOnly: 'none',
+          showMonsterOnly: 'none',
+          showBoth: 'block',
+        })} to="/monster">
           <div className="center">
             <div className="text">Monster and Indeed</div>
             <div className="explainer"><span>Search Jobs</span></div>
           </div>
+        </Link>
 
-
+          <Link onClick={()=> setDisplay({
+          homePageDisplay: 'none',
+          showIndeedOnly: 'none',
+          showMonsterOnly: 'block',
+          showBoth: 'none',
+        })} to="/monster">
           <div className="right">
             <div className="text">Monster</div>
           </div>
+          </Link>
 
 
           <Route path="/indeed" exact component={IndeedOnly} />

@@ -22,6 +22,8 @@
   transition: all 1.3s ease-out;
   justify-content: center;
   transform-style: preserve-3d;
+  position: relative;
+  top: 40%;
 }
 .all:hover{
   perspective: 1000px;
@@ -44,7 +46,7 @@
 
 
 
-.left, .right, .center, a{
+.left, .right, .center, a:nth-child(1), a:nth-child(2), a:nth-child(3){
   width: 200px;
   height: 150px;
   transform-style: preserve-3d;
@@ -61,7 +63,7 @@
   cursor: pointer;
   background-blend-mode: color-burn;
 }
-.left:hover, .right:hover, .center:hover{
+.left:hover, .right:hover, .center:hover, a:nth-child(1):hover, a:nth-child(3):hover{
   box-shadow: 0 0 30px 10px rgba(100,100,255,0.6);
   background-color: #ccf
 }
@@ -78,19 +80,19 @@
   text-shadow: 0 0 5px rgba(100, 100, 255, 0.6);
 }
 
-.left, a{
-  transform: translateX(-30px) translateZ(-25px) rotateY(-10deg);
+.left, a:nth-child(1){
+  transform: translateX(-20px) translateZ(-25px) rotateY(-10deg);
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Indeed_logo.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
-.right{
-  transform: translateX(30px) translateZ(-25px) rotateY(5deg);
+.right, a:nth-child(3){
+  transform: translateX(15px) translateZ(-25px) rotateY(5deg);
   background-image: url(https://logo-logos.com/wp-content/uploads/2016/11/Monster_Jobs_logo_MonsterJobs_logotype.png);
   background-size: contain;
   background-position-y: 10px;
 }
-.center{
+.center, a:nth-child(2){
   opacity: 1;
   background-image: url(https://www.betterteam.com/i/monster-vs-indeed-420x320-20190109.jpg);
   background-size: contain;
