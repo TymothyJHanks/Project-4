@@ -44,14 +44,14 @@
 
 
 
-.left, .right, .center {
+.left, .right, .center, a{
   width: 200px;
   height: 150px;
   transform-style: preserve-3d;
   border-radius: 10px;
   border: 1px solid #fff;
   box-shadow: 0 0 20px 5px rgba(100, 100, 255, 0.4);
-  opacity: 0;
+  opacity: 1;
   transition: all .3 ease;
   transition-delay: 1s;
   position: relative;
@@ -78,10 +78,11 @@
   text-shadow: 0 0 5px rgba(100, 100, 255, 0.6);
 }
 
-.left{
+.left, a{
   transform: translateX(-30px) translateZ(-25px) rotateY(-10deg);
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/fa/Indeed_logo.png);
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .right{
   transform: translateX(30px) translateZ(-25px) rotateY(5deg);
