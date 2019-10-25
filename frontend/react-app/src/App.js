@@ -20,7 +20,7 @@ function App() {
 
 const [{homePageDisplay, showIndeedOnly, showMonsterOnly, showBoth}, setDisplay] = useState({ //setting my CSS display in state so I can use it to display content when needed
   homePageDisplay: 'block',
-  showIndeedOnly: 'none',
+  showIndeedOnly: 'block',
   showMonsterOnly: 'none',
   showBoth: 'none',
 }); 
@@ -32,7 +32,7 @@ const [{homePageDisplay, showIndeedOnly, showMonsterOnly, showBoth}, setDisplay]
       <IndeedOnly></IndeedOnly>
       </div>
 
-      <div style={{display: showMonsterOnly}}>
+      {/* <div style={{display: showMonsterOnly}}>
       <MonsterOnly></MonsterOnly>
       </div>
 
@@ -83,7 +83,7 @@ const [{homePageDisplay, showIndeedOnly, showMonsterOnly, showBoth}, setDisplay]
           <Route path="/indeed" exact component={IndeedOnly} />
 
         </div>
-      </div>
+      </div> */}
     </Page>
   );
 }

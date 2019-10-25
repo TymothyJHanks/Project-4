@@ -3,7 +3,7 @@ import React from 'react'; //importing react
 import {useState} from 'react'; //importing use state so I'll be able to set state in here
 import {useContext} from 'react' //importing useContext to be able to use data in other components 
 import {ScrapeContext} from '../components/ScrapeContext'; //importing our scrape context from scrapecontext.js - the data in is actually comming from the props passed down from the page.js file from the scrapeContext component in there 
-// import '../css/Data.css' //importing data css
+import '../css/Data.css' //importing data css
 import { Route, Link} from "react-router-dom";
 import HomePage from '../App';
 

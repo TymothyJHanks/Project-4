@@ -1,6 +1,10 @@
 .scrapeData{
-    background-color: blue;
-    display: flex;
-    flex-direction: row;
+    background-image: radial-gradient(circle at center, #899Dc4, #495D84);
+    background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
     width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
